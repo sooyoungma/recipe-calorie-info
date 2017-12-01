@@ -1,0 +1,30 @@
+<template>
+	<el-menu
+		v-model="defaultActive"
+		:router="!!$router"
+		mode="vertical"
+	>
+		<el-menu-item index="/">Recipes</el-menu-item>
+		<el-menu-item index="/profile">Track Your Macros</el-menu-item>
+		<el-menu-item index="/create-recipe">Create Recipe</el-menu-item>
+
+	</el-menu>
+</template>
+
+
+
+<script>
+export default {
+	name: "default-navbar",
+	data: function(){ 
+		return {
+			defaultActive: null
+		};
+	},
+	watch: {
+		"$route": function(newRoute, oldRoute){
+			this.$set(this, "defaultActive", newRoute.path)
+		}
+	}
+};
+</script>

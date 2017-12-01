@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Recipe Information</title>
+	</head>
+	<body>
+		<div id="app">
+			<el-container>
+				
+				<el-header>
+					<router-view name="header"></router-view>
+				</el-header>
+				
+				<el-container>
+					<el-aside width="400px">
+						<router-view name="aside"></router-view>
+					</el-aside>
+					
+					<el-container>
+						<el-main>
+							<router-view name="main"></router-view>
+						</el-main>
+						<el-footer>
+							<router-view name="footer"></router-view>
+						</el-footer>
+					</el-container>
+					
+				</el-container>
+			
+			</el-container>
+		</div>
+
+		<script src="/dist/build.js"></script>
+	</body>
+</html>

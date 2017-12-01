@@ -1,0 +1,1 @@
+SECRET_KEY = '$z*&^lp2^5426gya@o6gtgdmx%%mqq@vdj07)##l^_t!h@t#8t'
