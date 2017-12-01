@@ -11,6 +11,7 @@ import RecipeSummary from './RecipeSummary.vue';
 import RecipeDetail from './RecipeDetail.vue';
 import CreateRecipe from './CreateRecipe.vue';
 import EditRecipe from './EditRecipe.vue';
+import TrackMacros from './TrackMacros.vue';
 
 
 
@@ -20,3 +21,4 @@ Vue.component(RecipeSummary.name, RecipeSummary);
 Vue.component(RecipeDetail.name, RecipeDetail);
 Vue.component(CreateRecipe.name, CreateRecipe);
 Vue.component(EditRecipe.name, EditRecipe);
+Vue.component(TrackMacros.name, TrackMacros);

@@ -11,7 +11,7 @@
 			<input type="text" name="calorie" v-model="calorie">
 		</label>
 		
-			<el-button block size="sm" type="success" native-type="submit">Enter Recipe Info</el-button>
+			<el-button button type="text">Enter Recipe Info</el-button>
 			
 	</form>
 

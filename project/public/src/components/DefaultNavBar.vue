@@ -5,7 +5,7 @@
 		mode="vertical"
 	>
 		<el-menu-item index="/">Recipes</el-menu-item>
-		<el-menu-item index="/profile">Track Your Macros</el-menu-item>
+		<el-menu-item index="/tracking-summary">Track Your Macros</el-menu-item>
 		<el-menu-item index="/create-recipe">Create Recipe</el-menu-item>
 
 	</el-menu>

@@ -35,12 +35,12 @@ const router = new VueRouter({
 			}
 		},
 		{
-			name: "profile",
-			path: "/profile",
+			name: "tracking-summary",
+			path: "/tracking-summary",
 			components: {
 				"header": { "template": '<h2 class="align-center">Recipe Information</h2>'},
 				"aside": { "template": "<default-navbar></default-navbar>"},
-				"main": { "template": "<p>Placeholder</p>" }
+				"main": { "template": "<tracking-summary></tracking-summary>" }
 			}
 		},
 		{
