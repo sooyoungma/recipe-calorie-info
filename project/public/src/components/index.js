@@ -5,20 +5,36 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
 
+function register(component){
+	Vue.component(component.name, component);
+};
+
 import DefaultNavBar from './DefaultNavBar.vue';
+register(DefaultNavBar);
+
 import RecipeCollection from './RecipeCollection.vue';
+register(RecipeCollection);
+
 import RecipeSummary from './RecipeSummary.vue';
+register(RecipeSummary);
+
 import RecipeDetail from './RecipeDetail.vue';
+register(RecipeDetail);
+
 import CreateRecipe from './CreateRecipe.vue';
+register(CreateRecipe);
+
 import EditRecipe from './EditRecipe.vue';
-import TrackMacros from './TrackMacros.vue';
+register(EditRecipe);
 
+// import AttendeeList from './AttendeeList.vue';
+// register(AttendeeList);
 
+// import AttendeeDetail from './AttendeeDetail.vue';
+// register(AttendeeDetail);
 
-Vue.component(DefaultNavBar.name, DefaultNavBar);
-Vue.component(RecipeCollection.name, RecipeCollection);
-Vue.component(RecipeSummary.name, RecipeSummary);
-Vue.component(RecipeDetail.name, RecipeDetail);
-Vue.component(CreateRecipe.name, CreateRecipe);
-Vue.component(EditRecipe.name, EditRecipe);
-Vue.component(TrackMacros.name, TrackMacros);
+// import CreateAttendee from './CreateAttendee.vue';
+// register(CreateAttendee);
+
+// import EditAttendee from './EditAttendee.vue';
+// register(EditAttendee);

@@ -1,7 +1,7 @@
 <template>
 	<div>
 
-		<p>Total Calorie Count:</p>
+		<p>Total Calorie Count: </p>
 	</div>
 </template>
 

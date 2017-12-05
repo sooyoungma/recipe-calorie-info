@@ -1,15 +1,16 @@
 <template>
-	<form v-on:submit.prevent="editRecipe($event, name, serving, calorie)">
+	<form v-on:submit.prevent="editEven($event, name, serving, calorie)">
 		<label> Name of Dish:
 			<input type="text" name="name" v-model="name">
 		</label>
 		<label>	Serving Size:
 			<input type="text" name="serving" v-model="serving">
 		</label>
-		<label>	calorie count:
+		<label> Calorie Count:
 			<input type="text" name="calorie" v-model="calorie">
-		</label>		
-			<button type="submit">Edit Recipe</button>
+		</label>
+			
+		<el-button type="submit">Edit Recipe</el-button>
 			
 	</form>
 </template>
@@ -25,19 +26,21 @@ export default {
 		return {
 			name: this.recipe.name,
 			serving: this.recipe.serving,
-			calorie: this.recipe.calorie
+			calories: this.recipe.calories
 		};
 	},
 	methods: {
 		editRecipe: function(event, name, serving, calorie){
 			this.$store.dispatch("editRecipe", {
-				event: this.event,
+				recipe: this.recipe,
 				data: {
 					name: name,
 					serving: serving,
-					calorie: calorie
+					calories: calories
 				}
+
 			});
+			this.$emit("editSubmitted");
 			
 		}
 	}
