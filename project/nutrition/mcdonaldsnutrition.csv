@@ -1,0 +1,56 @@
+Name,Calories,Calories From Fat,Total Fat (g),Saturated Fat (g),Trans Fat (g),Cholesterol (mg),Sodium (mg),Carbohydrates (g),Fiber (g),Sugars (g),Protein (g),Category 
+,,,,,,,,,,,,
+Pico Guacamole 1/4 lb Burger,580,300,33,12,1.5,95,920,41,4,7,29,beef
+Sweet BBQ Bacon 1/4 lb Burger,690,340,37,14,1.5,110,1310,51,3,14,38,beef
+Big Mac,540,250,28,10,1,80,950,46,3,9,25,beef
+Quarter Pounder® with Cheese,530,240,27,13,1.5,100,1090,41,3,10,31,beef
+Double Quarter Pounder® with Cheese,770,400,45,21,2.5,175,1290,42,3,10,51,beef
+Hamburger,250,70,8,3,0,30,480,31,2,6,13,beef
+Cheeseburger,300,100,12,5,0.5,40,680,33,2,7,15,beef
+Double Cheeseburger,430,190,21,11,1,85,1040,35,2,7,25,beef
+McDouble,380,160,18,8,1,70,840,34,2,7,23,beef
+Bacon McDouble,450,200,22,10,1,85,1080,34,2,7,28,beef
+Triple Cheeseburger,520,250,28,13,1.5,110,1160,36,2,7,32,beef
+Buttermilk Crispy Chicken Tenders 10 piece,1210,630,70,12,1,240,3230,52,1,4,94,chicken
+Buttermilk Crispy Chicken Tenders 3 piece,370,190,21,3.5,0,70,910,16,0,0,28,chicken
+Buttermilk Crispy Chicken Tenders 4 piece,480,250,28,4.5,0,95,1290,21,0,1,38,chicken
+Buttermilk Crispy Chicken Tenders 6 piece,760,390,44,8,0.5,145,1890,32,1,1,58,chicken
+Chicken McNuggets 10 Piece,440,240,27,4.5,0,75,840,26,2,0,24,chicken
+Chicken McNuggets 20 Piece,890,480,53,9,0,145,1680,53,4,0,49,chicken
+Chicken McNuggets 4 Piece,180,100,11,2,0,30,340,11,1,0,10,chicken
+Sweet BBQ Bacon Chicken Sandwich Crispy,800,320,36,9,0.5,95,1820,80,5,18,39,chicken
+Sweet BBQ Bacon Chicken Sandwich Grilled,630,200,22,7,0,135,1930,61,4,18,48,chicken
+Pico Guacamole Chicken Sandwich Crispy,680,280,32,7,0,80,1430,69,6,12,31,chicken
+Pico Guacamole Chicken Sandwich Grilled,520,160,18,6,0,115,1540,50,4,12,40,chicken
+Premium Buttermilk Crispy Chicken Deluxe Sandwich,570,200,23,5,0,60,1050,64,4,11,28,chicken
+Premium Crispy Chicken Deluxe Sandwich,530,200,22,4,0,45,1000,59,3,13,25,chicken
+McChicken,350,130,15,3.5,0,40,600,40,2,5,15,chicken
+Premium Bacon Ranch Salad w/ Crispy Chicken,490,250,28,8,0,95,1120,28,4,4,33,salad
+Premium Bacon Ranch Salad w/ Grilled Chicken,320,120,14,6,0,45,1230,9,3,4,42,salad
+Premium Southwest Salad w/ Crispy Chicken,520,230,25,6,0,75,960,46,8,9,28,salad
+Premium Southwest Salad w/ Grilled Chicken,350,100,12,4.5,0,110,1070,27,6,9,37,salad
+Side Salad,20,0,0,0,0,0,10,4,1,2,1,salad
+Filet-O-Fish®,380,170,18,4,0,40,640,38,2,5,15,fish
+French Fries Large,510,220,24,3.5,0,0,350,66,6,0,7,side
+French Fries Medium,340,140,16,2,0,0,230,44,4,0,4,side
+French Fries Small,230,100,11,2,0,0,160,29,3,0,3,side
+Fruit 'n Yogurt Parfait,150,20,2,1,0,5,75,30,1,22,4,breakfast
+Egg McMuffin,300,110,12,6,0,245,730,30,2,3,18,breakfast
+Egg White Delight McMuffin,260,70,8,4.5,0,35,750,29,2,3,16,breakfast
+Sausage McMuffin®,400,230,25,10,0,55,740,29,2,3,14,breakfast
+Sausage McMuffin® with Egg,470,270,30,12,0,275,810,30,2,3,21,breakfast
+"Bacon, Egg & Cheese Biscuit",450,220,24,12,0,200,1290,40,3,3,18,breakfast
+Sausage Biscuit,460,270,30,13,0,40,1050,36,2,3,11,breakfast
+Sausage Biscuit with Egg,530,310,34,15,0,205,1140,38,2,3,17,breakfast
+"Bacon, Egg & Cheese McGriddles",420,160,18,8,0,195,1230,45,2,15,18,breakfast
+Sausage McGriddles®,430,220,24,9,0,35,990,42,1,15,11,breakfast
+"Sausage, Egg & Cheese McGriddles",550,290,32,13,0,215,1280,45,2,15,20,breakfast
+"Bacon, Egg & Cheese Bagel",550,220,25,11,0.5,225,1260,54,4,7,26,breakfast
+Big Breakfast®,750,440,49,18,0,465,1490,53,3,3,25,breakfast
+Big Breakfast with Hotcakes,1350,590,65,25,0.5,510,2100,155,6,48,35,breakfast
+Hotcakes,600,150,16,7,0,45,610,102,2,45,9,breakfast
+Hotcakes and Sausage,790,310,35,13,0,80,890,103,2,45,16,breakfast
+Sausage Burrito,290,140,15,6,0,165,800,26,1,2,13,breakfast
+Hash Brown,150,80,9,1.5,0,0,320,16,1,0,1,breakfast
+Fruit & Maple Oatmeal w/ Brown Sugar,310,35,4,1.5,0,5,140,62,5,33,6,breakfast
+Fruit & Maple Oatmeal w/o Brown Sugar,260,40,4,1.5,0,5,115,49,5,18,6,breakfast
