@@ -3,30 +3,35 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
 
-class Vote(models.Model):
-	LIKE = 'L'
-	DISLIKE = 'D'
-	ACTIVITY_TYPES = (
-		(LIKE, 'Like'),
-		(DISLIKE, 'Dislike'),
-	)
-	activity_type = models.CharField(max_length=1, choices=ACTIVITY_TYPES)
-
-	# Below the mandatory fields for generic relation
-	content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-	object_id = models.PositiveIntegerField()
-	content_object = GenericForeignKey()
+from django_pandas.managers import DataFrameManager
 
 
-class Recipe(models.Model):
-	name = models.CharField(max_length=100)
-	serving = models.DecimalField(max_digits=3, decimal_places=2)
+class Entree(models.Model):
+	name = models.CharField(max_length=50)
+	
 	calorie = models.DecimalField(max_digits=8, decimal_places=2)
+	calories_from_fat = models.DecimalField(max_digits=5, decimal_places=2)
+	total_fat = models.DecimalField(max_digits=5, decimal_places=2)
+	saturated_fat = models.DecimalField(max_digits=5, decimal_places=2)
+	trans_fat = models.DecimalField(max_digits=5, decimal_places=2)
+	cholesterol = models.DecimalField(max_digits=5, decimal_places=2)
+	sodium = models.DecimalField(max_digits=5, decimal_places=2)
+	carbohydrates = models.DecimalField(max_digits=5, decimal_places=2)
+	protein = models.DecimalField(max_digits=5, decimal_places=2)
+	fiber = models.DecimalField(max_digits=5, decimal_places=2)
+	sugars = models.DecimalField(max_digits=5, decimal_places=2)
+	protein = models.DecimalField(max_digits=5, decimal_places=2)
+	category = models.CharField(max_length=8)
 
-	vote = GenericRelation(
-		Vote,
-		related_query_name='recipes'
-
-	)
+	objects = DataFrameManager()
 
 
+class UserInfo(models.Model):
+	
+	age = models.PositiveSmallIntegerField()
+	sex = models.CharField(max_length=1)
+	weight = models.PositiveSmallIntegerField()
+	height = models.PositiveSmallIntegerField()
+	macro_information = models.ForeignKey(Entree ,on_delete=models.PROTECT)	
+
+	objects = DataFrameManager()

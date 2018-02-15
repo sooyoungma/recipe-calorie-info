@@ -4,28 +4,71 @@ from django.shortcuts import get_object_or_404
 from rest_framework import generics, permissions
 
 
+from recipes.permissions import EntreeIsOwnerOrReadOnly
 
 
-from recipes.models import Recipe, Vote
+from recipes.models import Entree, UserInfo
 from recipes.serializers import (
-	RecipeSerializer, VoteSerializer
+	EntreeSerializer, UserSerializer
 )
+from rest_pandas import PandasSimpleView
+import pandas as pd
 
-class RecipeListView(generics.ListCreateAPIView):
-	queryset = Recipe.objects.all()
-	serializer_class = RecipeSerializer
+class BurgerKingAPIView(PandasSimpleView):
+	def get_data(self, request, *args, **kwargs):
+		return pd.read_csv('nutrition/burgerkingnutrition.csv')
+
+class McdonaldsAPIView(PandasSimpleView):
+	def get_data(self, request, *args, **kwargs):
+		return pd.read_csv('nutrition/mcdonaldsnutrition.csv')
+
+class PopeyesAPIsView(PandasSimpleView):
+	def get_data(self, request, *args, **kwargs):
+		return pd.read_csv('nutrition/popeyesnutrition.csv')
+
+class WendysAPIView(PandasSimpleView):
+	def get_data(self, request, *args, **kwargs):
+		return pd.read_csv('nutrition/wendysnutrition.csv')
+		
+#The example above allows you to create a simple API for an existing Pandas DataFrame, e.g. generated from an existing file.
+
+
+
+
+class EntreeListView(generics.ListCreateAPIView):
+	queryset = Entree.objects.all()
+	serializer_class = EntreeSerializer
+	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 	def perform_create(self, serializer):
-		serializer.save()
+		serializer.save(user=self.request.user)
 
-class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
-	queryset = Recipe.objects.all()
-	serializer_class = RecipeSerializer
+	def get_entree(self):
+		pk = self.kwargs.get('pk')
+		return get_object_or_404(Entree, id=pk)
+
+class EntreeDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = Entree.objects.all()
+	serializer_class = EntreeSerializer
+
+	permission_classes = (EntreeIsOwnerOrReadOnly,)
 
 
-class VoteView(generics.ListCreateAPIView):
-	queryset = Vote.objects.all()
-	serializer_class = VoteSerializer
+
+
+class UserInfoListView(generics.ListCreateAPIView):
+	queryset = UserInfo.objects.all()
+	serializer_class = UserInfoSerializer
+
+
+	def perform_create(self, serializer):
+		serializer.save(user=self.request.user)
+
+
+class UserInfoDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = UserInfo.objects.all()
+	serializer_class = UserInfoSerializer
+
 
 
  # data makes the querydict unmuttable 
@@ -40,10 +83,6 @@ class VoteView(generics.ListCreateAPIView):
 	# 		kwargs['data']['recipe'] = self.get_recipe().id
 	# 	return serializer_class(*args, **kwargs)
 
-	def get_recipe(self):
-		pk = self.kwargs.get('pk')
-		return get_object_or_404(Recipe, id=pk)
-
 	def get_queryset(self):
 		queryset = super().get_queryset()
 		queryset = queryset.filter(recipes=self.get_recipe())
@@ -54,25 +93,3 @@ class VoteView(generics.ListCreateAPIView):
 		serializer.save(content_object=recipe)
 
 
-
-class VoteDetail(generics.RetrieveUpdateDestroyAPIView):
-	queryset = Vote.objects.all()
-	serializer_class = VoteSerializer
-	
-	def get_recipe(self):
-		pk = self.kwargs.get('pk')
-		return get_object_or_404(Recipe, id=pk)
-
-	def get_queryset(self):
-		queryset = super().get_queryset()
-		queryset = queryset.filter(recipes=self.get_recipe())
-		return queryset
-
-	def perform_create(self, serializer):
-		target = self.get_recipe()
-		defaults = serializer.data
-		defaults.update(dict(target=target))
-		obj, created = Vote.objects.update_or_create(
-			recipes__id=target.id, 
-			defaults=defaults
-		)
