@@ -21,11 +21,11 @@ app_name = "recipes"
 
 urlpatterns = [
 
-	url(r'^recipes$', views.EntreeListView.as_view(), namespace="recipes"),
-	url(r'^recipes/mcdonalds$', views.McdonaldsAPIView.as_view(), namespace="mcdonalds-nutrition"),
-	url(r'^recipes/burgerking$', views.BurgerKingAPIView.as_view(), namespace="burgerking-nutrition"),
-	url(r'^recipes/popeyes$', views.PopeyesAPIView.as_view(), namespace="popeyes-nutrition"),
-	url(r'^recipes/wendys$', views.WendysAPIView.as_view(), namespace="wendys-nutrition"),
+	url(r'^recipes$', views.EntreeListView.as_view(), name="recipes"),
+	url(r'^recipes/mcdonalds$', views.McdonaldsAPIView.as_view(), name="mcdonalds-nutrition"),
+	url(r'^recipes/burgerking$', views.BurgerKingAPIView.as_view(), name="burgerking-nutrition"),
+	url(r'^recipes/popeyes$', views.PopeyesAPIView.as_view(), name="popeyes-nutrition"),
+	url(r'^recipes/wendys$', views.WendysAPIView.as_view(), name="wendys-nutrition"),
 
 ]
 

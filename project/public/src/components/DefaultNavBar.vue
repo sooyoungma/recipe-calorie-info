@@ -6,7 +6,7 @@
 	>
 		<el-menu-item index="/">Recipes</el-menu-item>
 		<el-menu-item index="/tracking-summary">Track Your Macros</el-menu-item>
-		<el-menu-item index="/create-recipe">Enter Recipe Info</el-menu-item>
+		<el-menu-item index="/create-nutrition">Enter Nutrition Info</el-menu-item>
 
 	</el-menu>
 </template>

@@ -9,7 +9,7 @@ from django_pandas.managers import DataFrameManager
 class Entree(models.Model):
 	name = models.CharField(max_length=50)
 	
-	calorie = models.DecimalField(max_digits=8, decimal_places=2)
+	calories = models.DecimalField(max_digits=8, decimal_places=2)
 	calories_from_fat = models.DecimalField(max_digits=5, decimal_places=2)
 	total_fat = models.DecimalField(max_digits=5, decimal_places=2)
 	saturated_fat = models.DecimalField(max_digits=5, decimal_places=2)
@@ -17,9 +17,8 @@ class Entree(models.Model):
 	cholesterol = models.DecimalField(max_digits=5, decimal_places=2)
 	sodium = models.DecimalField(max_digits=5, decimal_places=2)
 	carbohydrates = models.DecimalField(max_digits=5, decimal_places=2)
-	protein = models.DecimalField(max_digits=5, decimal_places=2)
 	fiber = models.DecimalField(max_digits=5, decimal_places=2)
-	sugars = models.DecimalField(max_digits=5, decimal_places=2)
+	sugar = models.DecimalField(max_digits=5, decimal_places=2)
 	protein = models.DecimalField(max_digits=5, decimal_places=2)
 	category = models.CharField(max_length=8)
 

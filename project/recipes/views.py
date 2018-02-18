@@ -9,7 +9,7 @@ from recipes.permissions import EntreeIsOwnerOrReadOnly
 
 from recipes.models import Entree, UserInfo
 from recipes.serializers import (
-	EntreeSerializer, UserSerializer
+	EntreeSerializer, UserInfoSerializer
 )
 from rest_pandas import PandasSimpleView
 import pandas as pd
@@ -22,7 +22,7 @@ class McdonaldsAPIView(PandasSimpleView):
 	def get_data(self, request, *args, **kwargs):
 		return pd.read_csv('nutrition/mcdonaldsnutrition.csv')
 
-class PopeyesAPIsView(PandasSimpleView):
+class PopeyesAPIView(PandasSimpleView):
 	def get_data(self, request, *args, **kwargs):
 		return pd.read_csv('nutrition/popeyesnutrition.csv')
 
@@ -56,7 +56,7 @@ class EntreeDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 
-class UserInfoListView(generics.ListCreateAPIView):
+class UserListView(generics.ListCreateAPIView):
 	queryset = UserInfo.objects.all()
 	serializer_class = UserInfoSerializer
 

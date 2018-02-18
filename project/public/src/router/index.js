@@ -26,19 +26,19 @@ const router = new VueRouter({
 			}
 		},
 		{
-			name: "create-recipe",
-			path: "/create-recipe",
+			name: "create-nutrition",
+			path: "/create-nutrition",
 			components: {
 				"header": {"template": '<h2 class="align-center">Recipe Info</h2>'},
 				"aside": {"template": "<default-navbar></default-navbar>"},
-				"main": {"template": "<create-recipe></create-recipe>"}
+				"main": {"template": "<create-nutrition></create-nutrition>"}
 			}
 		},
 		{
 			name: "tracking-summary",
 			path: '/tracking-summary',
 			components: {
-				"header": { "template": '<h2 class="align-center">Recipe Info</h2>'},
+				"header": { "template": '<h2 class="align-center">Macro Tracker</h2>'},
 				"aside": { "template": "<default-navbar></default-navbar>"},
 				"main": { "template": "<tracking-summary></tracking-summary>" }
 			}

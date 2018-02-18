@@ -21,8 +21,8 @@ register(RecipeSummary);
 import RecipeDetail from './RecipeDetail.vue';
 register(RecipeDetail);
 
-import CreateRecipe from './CreateRecipe.vue';
-register(CreateRecipe);
+import CreateNutrition from './CreateNutrition.vue';
+register(CreateNutrition);
 
 import EditRecipe from './EditRecipe.vue';
 register(EditRecipe);
