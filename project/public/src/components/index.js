@@ -27,14 +27,6 @@ register(CreateNutrition);
 import EditRecipe from './EditRecipe.vue';
 register(EditRecipe);
 
-// import AttendeeList from './AttendeeList.vue';
-// register(AttendeeList);
+import MacrosTracker from './MacrosTracker.vue';
+register(MacrosTracker)
 
-// import AttendeeDetail from './AttendeeDetail.vue';
-// register(AttendeeDetail);
-
-// import CreateAttendee from './CreateAttendee.vue';
-// register(CreateAttendee);
-
-// import EditAttendee from './EditAttendee.vue';
-// register(EditAttendee);

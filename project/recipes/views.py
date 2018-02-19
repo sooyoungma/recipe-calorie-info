@@ -14,25 +14,6 @@ from recipes.serializers import (
 from rest_pandas import PandasSimpleView
 import pandas as pd
 
-class BurgerKingAPIView(PandasSimpleView):
-	def get_data(self, request, *args, **kwargs):
-		return pd.read_csv('nutrition/burgerkingnutrition.csv')
-
-class McdonaldsAPIView(PandasSimpleView):
-	def get_data(self, request, *args, **kwargs):
-		return pd.read_csv('nutrition/mcdonaldsnutrition.csv')
-
-class PopeyesAPIView(PandasSimpleView):
-	def get_data(self, request, *args, **kwargs):
-		return pd.read_csv('nutrition/popeyesnutrition.csv')
-
-class WendysAPIView(PandasSimpleView):
-	def get_data(self, request, *args, **kwargs):
-		return pd.read_csv('nutrition/wendysnutrition.csv')
-		
-#The example above allows you to create a simple API for an existing Pandas DataFrame, e.g. generated from an existing file.
-
-
 
 
 class EntreeListView(generics.ListCreateAPIView):

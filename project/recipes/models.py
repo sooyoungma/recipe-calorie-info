@@ -3,26 +3,22 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
 
-from django_pandas.managers import DataFrameManager
-
 
 class Entree(models.Model):
-	name = models.CharField(max_length=50)
-	
-	calories = models.DecimalField(max_digits=8, decimal_places=2)
-	calories_from_fat = models.DecimalField(max_digits=5, decimal_places=2)
-	total_fat = models.DecimalField(max_digits=5, decimal_places=2)
-	saturated_fat = models.DecimalField(max_digits=5, decimal_places=2)
-	trans_fat = models.DecimalField(max_digits=5, decimal_places=2)
-	cholesterol = models.DecimalField(max_digits=5, decimal_places=2)
-	sodium = models.DecimalField(max_digits=5, decimal_places=2)
-	carbohydrates = models.DecimalField(max_digits=5, decimal_places=2)
-	fiber = models.DecimalField(max_digits=5, decimal_places=2)
-	sugar = models.DecimalField(max_digits=5, decimal_places=2)
-	protein = models.DecimalField(max_digits=5, decimal_places=2)
+	name = models.CharField(max_length=50)	
+	calories = models.PositiveSmallIntegerField()
+	calories_from_fat = models.PositiveSmallIntegerField()
+	total_fat = models.FloatField()
+	saturated_fat = models.FloatField()
+	trans_fat = models.FloatField()
+	cholesterol = models.PositiveSmallIntegerField()
+	sodium = models.PositiveSmallIntegerField()
+	carbohydrates = models.PositiveSmallIntegerField()
+	fiber = models.PositiveSmallIntegerField()
+	sugar = models.PositiveSmallIntegerField()
+	protein = models.PositiveSmallIntegerField()
 	category = models.CharField(max_length=8)
-
-	objects = DataFrameManager()
+	restaurant = models.CharField(max_length=10)
 
 
 class UserInfo(models.Model):
@@ -33,4 +29,3 @@ class UserInfo(models.Model):
 	height = models.PositiveSmallIntegerField()
 	macro_information = models.ForeignKey(Entree ,on_delete=models.PROTECT)	
 
-	objects = DataFrameManager()

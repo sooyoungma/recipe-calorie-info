@@ -1,7 +1,15 @@
 <template>
 	<div>
+	
+		<select v-model="restaurant" multiple>
+		  <option>McDonalds</option>
+		  <option>Burger King</option>
+		  <option>Popeyes</option>
+		  <option>Wendys</option>
 
-		<p>Total Calorie Count: </p>
+		</select>
+		<br>
+		<span>Selected: {{ selected }}</span>
 	</div>
 </template>
 

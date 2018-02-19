@@ -40,9 +40,16 @@ INSTALLED_APPS = [
     'rest_framework',
     'recipes',
     'users',
-    'rest_pandas'
+    'rest_pandas',
 
 ]
+
+REST_FRAMEWORK = {
+    # specifying the renderers
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework_csv.renderers.CSVRenderer',
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,6 +91,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
 
 
 # Password validation
