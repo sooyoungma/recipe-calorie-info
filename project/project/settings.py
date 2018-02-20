@@ -40,16 +40,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'recipes',
     'users',
-    'rest_pandas',
+    'django_filters',
 
 ]
 
-REST_FRAMEWORK = {
-    # specifying the renderers
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework_csv.renderers.CSVRenderer',
-    ),
-}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,7 +61,7 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

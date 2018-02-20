@@ -11,44 +11,50 @@ from recipes.models import Entree, UserInfo
 from recipes.serializers import (
 	EntreeSerializer, UserInfoSerializer
 )
-from rest_pandas import PandasSimpleView
-import pandas as pd
+
+import django_filters
+
+from django.shortcuts import render
+from recipes.filters import EntreeFilterCalories
+
+def search(request):
+	entree_list = Entree.objects.all()
+	entree_calories = EntreeFilterCalories(request.GET, queryset=entree_list)
+	return render(request, 'recipes/calories_list.html', {'filter': entree_calories})
+
+# class EntreeListView(generics.ListCreateAPIView):
+# 	queryset = Entree.objects.all()
+# 	serializer_class = EntreeSerializer
+# 	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+# 	def perform_create(self, serializer):
+# 		serializer.save(user=self.request.user)
+
+# 	def get_entree(self):
+# 		pk = self.kwargs.get('pk')
+# 		return get_object_or_404(Entree, id=pk)
+
+# class EntreeDetail(generics.RetrieveUpdateDestroyAPIView):
+# 	queryset = Entree.objects.all()
+# 	serializer_class = EntreeSerializer
+
+# 	permission_classes = (EntreeIsOwnerOrReadOnly,)
 
 
 
-class EntreeListView(generics.ListCreateAPIView):
-	queryset = Entree.objects.all()
-	serializer_class = EntreeSerializer
-	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
-	def perform_create(self, serializer):
-		serializer.save(user=self.request.user)
-
-	def get_entree(self):
-		pk = self.kwargs.get('pk')
-		return get_object_or_404(Entree, id=pk)
-
-class EntreeDetail(generics.RetrieveUpdateDestroyAPIView):
-	queryset = Entree.objects.all()
-	serializer_class = EntreeSerializer
-
-	permission_classes = (EntreeIsOwnerOrReadOnly,)
+# class UserListView(generics.ListCreateAPIView):
+# 	queryset = UserInfo.objects.all()
+# 	serializer_class = UserInfoSerializer
 
 
+# 	def perform_create(self, serializer):
+# 		serializer.save(user=self.request.user)
 
 
-class UserListView(generics.ListCreateAPIView):
-	queryset = UserInfo.objects.all()
-	serializer_class = UserInfoSerializer
-
-
-	def perform_create(self, serializer):
-		serializer.save(user=self.request.user)
-
-
-class UserInfoDetail(generics.RetrieveUpdateDestroyAPIView):
-	queryset = UserInfo.objects.all()
-	serializer_class = UserInfoSerializer
+# class UserInfoDetail(generics.RetrieveUpdateDestroyAPIView):
+# 	queryset = UserInfo.objects.all()
+# 	serializer_class = UserInfoSerializer
 
 
 

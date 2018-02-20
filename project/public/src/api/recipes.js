@@ -48,20 +48,5 @@ export default {
 			url: '/recipes/' + recipeId
 		});
 	},
-	createVote: function(recipeId, data){
-		data.status = STATUSES[data.status];
-		return axios({
-			method: 'post',
-			url: '/recipes/' + recipeId + "/votes",
-			data: data
-		});
-	},
-	editVote: function(voteId, data){
-		data.status = STATUSES[data.status];
-		return axios({
-			method: 'put',
-			url: '/votes/' + voteId,
-			data: data
-		});
-	}
+
 }

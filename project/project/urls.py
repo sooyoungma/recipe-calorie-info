@@ -19,7 +19,7 @@ from django.contrib import admin
 app_name = "recipes"
 
 urlpatterns = [
-	url(r'^api/v0/recipes/', include(('recipes.urls', 'recipes'), namespace='recipes')),
+	url(r'^', include(('recipes.urls', 'recipes'), namespace='recipes')),
 	url(r'^admin/', admin.site.urls),
 	url(r'^authenticate/', include(('users.urls','users'), namespace='users')),
 	url(r'^api-auth/', include(('rest_framework.urls', 'rest_framework'), namespace='rest_framework'))

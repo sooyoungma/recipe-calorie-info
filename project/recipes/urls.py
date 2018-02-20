@@ -20,8 +20,9 @@ from recipes import views
 app_name = "recipes"
 
 urlpatterns = [
+	url(r'^search/$', views.search, name='search'),
 
-	url(r'^recipes$', views.EntreeListView.as_view(), name="recipes"),
+	# url(r'^recipes$', views.EntreeListView.as_view(), name="recipes"),
 
 ]
 

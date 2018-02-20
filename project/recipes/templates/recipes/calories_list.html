@@ -1,0 +1,44 @@
+
+
+{% block content %}
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+</li>
+
+
+
+
+	  <table class="table table-bordered">
+	    <thead>
+	      <tr>
+	        <th>Entree Name</th>
+	        <th>Calories</th>
+	        <th>Protein (g)</th>
+	        <th>Carbs (g)</th>
+	        <th>Restaurant</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      {% for entree in filter.qs %}
+	        <tr>
+	          <td>{{ entree.name }}</td>
+	          <td>{{ entree.calories }}</td>
+	          <td>{{ entree.protein }}</td>
+	          <td>{{ entree.carbohydrates }}</td>
+	          <td>{{ entree.restaurant }}</td>
+
+	          <td>
+	  
+	    
+	            {% endfor %}
+	          </td>
+	        </tr>
+	        <tr>
+	        </tr>
+
+	    </tbody>
+	  </table>
+ {% endblock %}
