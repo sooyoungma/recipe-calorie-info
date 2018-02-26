@@ -13,4 +13,7 @@ class UserFilter(django_filters.FilterSet):
 class EntreeFilterCalories(django_filters.FilterSet):
 	class Meta:
 		model = Entree
-		fields = ['restaurant','protein','calories']
+		fields = { 'name' : ['iexact'],
+		'calories' : ['lt'],
+		'protein' : ['gt']
+		}

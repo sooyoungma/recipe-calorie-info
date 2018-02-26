@@ -21,8 +21,9 @@ def search(request):
 	entree_list = Entree.objects.all()
 	entree_calories = EntreeFilterCalories(request.GET, queryset=entree_list)
 	return render(request, 'recipes/calories_list.html', {'filter': entree_calories})
+# this search function filters out Entree based on filters.py 
 
-# class EntreeListView(generics.ListCreateAPIView):
+# class EntreeListCreate(generics.ListCreateAPIView):
 # 	queryset = Entree.objects.all()
 # 	serializer_class = EntreeSerializer
 # 	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
@@ -40,7 +41,12 @@ def search(request):
 
 # 	permission_classes = (EntreeIsOwnerOrReadOnly,)
 
+# class EntreeCaloriesListAPIView(generics.ListAPIView):
+# 	serializer_class = EntreeSerializer
 
+# 	def get_queryset(self, *args, **kwargs):
+# 		queryset_list = Entree.objects.all()
+		
 
 
 # class UserListView(generics.ListCreateAPIView):
