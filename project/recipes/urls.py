@@ -16,13 +16,19 @@ Including another URLconf
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 from recipes import views
+from django.views.generic import TemplateView
+
+from django_filters.views import FilterView
+
 
 app_name = "recipes"
 
 urlpatterns = [
-	url(r'^search/$', views.search, name='search'),
+	url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),	
 
-	# url(r'^recipes$', views.EntreeListView.as_view(), name="recipes"),
+	url(r'^search$', views.search, name='search'),
+
+	url(r'^recipes$', views.EntreeListCreate.as_view(), name="recipes"),
 
 ]
 

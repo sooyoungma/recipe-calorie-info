@@ -6,6 +6,7 @@ from rest_framework import generics, permissions
 
 from recipes.permissions import EntreeIsOwnerOrReadOnly
 
+from django.db.models import Q
 
 from recipes.models import Entree, UserInfo
 from recipes.serializers import (
@@ -13,6 +14,8 @@ from recipes.serializers import (
 )
 
 import django_filters
+
+from rest_framework.renderers import TemplateHTMLRenderer
 
 from django.shortcuts import render
 from recipes.filters import EntreeFilterCalories
@@ -23,23 +26,24 @@ def search(request):
 	return render(request, 'recipes/calories_list.html', {'filter': entree_calories})
 # this search function filters out Entree based on filters.py 
 
-# class EntreeListCreate(generics.ListCreateAPIView):
-# 	queryset = Entree.objects.all()
-# 	serializer_class = EntreeSerializer
-# 	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+class EntreeListCreate(generics.ListCreateAPIView):
+	queryset = Entree.objects.all()
+	serializer_class = EntreeSerializer
+	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
-# 	def perform_create(self, serializer):
-# 		serializer.save(user=self.request.user)
+	def perform_create(self, serializer):
+		serializer.save(user=self.request.user)
 
-# 	def get_entree(self):
-# 		pk = self.kwargs.get('pk')
-# 		return get_object_or_404(Entree, id=pk)
+	def get_entree(self):
+		pk = self.kwargs.get('pk')
+		return render(request, 'recipes/user_entree.html')
 
-# class EntreeDetail(generics.RetrieveUpdateDestroyAPIView):
-# 	queryset = Entree.objects.all()
-# 	serializer_class = EntreeSerializer
 
-# 	permission_classes = (EntreeIsOwnerOrReadOnly,)
+class EntreeDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = Entree.objects.all()
+	serializer_class = EntreeSerializer
+
+	permission_classes = (EntreeIsOwnerOrReadOnly,)
 
 # class EntreeCaloriesListAPIView(generics.ListAPIView):
 # 	serializer_class = EntreeSerializer
