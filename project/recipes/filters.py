@@ -4,6 +4,7 @@ import django_filters
 from django import forms
 
 
+
 class UserFilter(django_filters.FilterSet):
 	class Meta:
 		model = User
@@ -18,6 +19,7 @@ class EntreeFilterCalories(django_filters.FilterSet):
 	protein =  django_filters.NumberFilter(lookup_expr='gte')
 	restaurant =  django_filters.CharFilter(lookup_expr='icontains')
 	carbohydrates = django_filters.NumberFilter(lookup_expr='lte')
+	
 	class Meta:
 		model = Entree
 		fields = ['calories', 'restaurant', 'protein', 'carbohydrates', 'total_fat']

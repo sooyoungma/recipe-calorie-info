@@ -26,6 +26,12 @@ def search(request):
 	return render(request, 'recipes/calories_list.html', {'filter': entree_calories})
 # this search function filters out Entree based on filters.py 
 
+
+def to_dict(self):
+	return {
+	'filter': self.filter.data
+	}
+
 class EntreeListCreate(generics.ListCreateAPIView):
 	queryset = Entree.objects.all()
 	serializer_class = EntreeSerializer
