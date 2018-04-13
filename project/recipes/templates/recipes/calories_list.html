@@ -65,7 +65,7 @@
 
 
 
-		  <table class="table table-bordered">
+		  <table class="table">
 		    <thead>
 		      <tr>
 		        <th>Entree Name</th>
@@ -83,7 +83,9 @@
 		      {% for entree in filter.qs %}
 	
 
-		        <tr>
+		        <tr id="{{entree.id}}">
+
+
 
 
 		          <td>{{ entree.name }}</td>
@@ -94,9 +96,14 @@
 		          <td>{{ entree.restaurant }}</td>
 
 		          <td>
-		  			<div class="form-check">
-    <input type="checkbox" class="form-check-input" id="{{entree.id}}" >
-    <label class="form-check-label">Click to compare</label>
+		  			 <div id="option">
+        <input name="updateButton"
+        	   id={{entree.id}}
+               type="button"
+               value="click to see graph"
+               onclick="updateData()"
+            />
+    </div>
 </div>
 
 		    
@@ -114,14 +121,29 @@
 		  	<h3> See nutritional info visually here </h3>
 		  	<div id="chart"></div>
 			<script src="http://d3js.org/d3.v3.min.js"></script>
+			<script src="https://d3js.org/d3-selection.v1.min.js"></script>
 
 			  	<script>
-			  	d3.select('#chart')
-				  .selectAll("div")
-				  .data([4, 8, 15, 16, 23, 42])
-				  .enter()
-				  .append("div")
-				  .style("height", (d)=> d + "px")
+			d3.select(“#checkbox”)on(“click”,function(){})
+
+			  		// if checkbox is checked
+			  		// var data = d3.selectAll("tr").selectAll("td");
+
+			  		// should return graph? lol 
+
+
+					// var holder = d3.select("chart")
+					//       .append("svg")
+					//       .attr("width", width)    
+					//       .attr("height", height); 
+
+// 					d3.selectAll(".results td:nth-child(4n+2)")
+// 						.each(function() { this.__data__ = d3.select(this).text(); })
+// 						  .style("background-color", function(d) { 
+// 						                        console.log( d );
+// 				                            //change style depending on d, but its always undefined
+//                             //I can access element via this, but shouldn't d have something ?
+// } );
 
 
 
