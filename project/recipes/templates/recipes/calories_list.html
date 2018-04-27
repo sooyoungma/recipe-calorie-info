@@ -25,37 +25,37 @@
 		</style>
 	</head>
 		  <form method="get">
-		    <div class="well">
-		      <h4 style="margin-top: 0">What to Eat</h4>
-		      <div class="row">
-		        <div class="form-group col-sm-4 col-md-2">
-		           {{ filter.form.restaurant.label_tag }}
-		          {% render_field filter.form.restaurant class="form-control" %}
-		      </div>
+			<div class="well">
+			  <h4 style="margin-top: 0">What to Eat</h4>
+			  <div class="row">
+				<div class="form-group col-sm-4 col-md-2">
+				   {{ filter.form.restaurant.label_tag }}
+				  {% render_field filter.form.restaurant class="form-control" %}
+			  </div>
 
-		        <div class="form-group col-sm-4 col-md-2">
-		          {{ filter.form.calories.label_tag }}
-		          {% render_field filter.form.calories class="form-control" %}
-		        </div>
+				<div class="form-group col-sm-4 col-md-2">
+				  {{ filter.form.calories.label_tag }}
+				  {% render_field filter.form.calories class="form-control" %}
+				</div>
 
 
-		        <div class="form-group col-sm-4 col-md-2">
-		          {{ filter.form.protein.label_tag }}
-		          {% render_field filter.form.protein class="form-control" %}
-		        </div>
+				<div class="form-group col-sm-4 col-md-2">
+				  {{ filter.form.protein.label_tag }}
+				  {% render_field filter.form.protein class="form-control" %}
+				</div>
 
-		        <div class="form-group col-sm-3 col-md-2">
-		          {{ filter.form.carbohydrates.label_tag }}
-		          {% render_field filter.form.carbohydrates class="form-control" %}
-		        </div>
-		        <div class="form-group col-sm-3 col-md-2">
-		          {{ filter.form.total_fat.label_tag }}
-		          {% render_field filter.form.total_fat class="form-control" %}
-		        </div>
-		     	<button type="submit" class="btn btn-primary">
-		        <span class="glyphicon glyphicon-search"></span> Search
-		      </button>
-		    </div>
+				<div class="form-group col-sm-3 col-md-2">
+				  {{ filter.form.carbohydrates.label_tag }}
+				  {% render_field filter.form.carbohydrates class="form-control" %}
+				</div>
+				<div class="form-group col-sm-3 col-md-2">
+				  {{ filter.form.total_fat.label_tag }}
+				  {% render_field filter.form.total_fat class="form-control" %}
+				</div>
+				<button type="submit" class="btn btn-primary">
+				<span class="glyphicon glyphicon-search"></span> Search
+			  </button>
+			</div>
 		  </form>
 	</div>
 </form>
@@ -66,70 +66,115 @@
 
 
 		  <table class="table">
-		    <thead>
-		      <tr>
-		        <th>Entree Name</th>
-		        <th>Calories</th>
-		        <th>Protein (g)</th>
-		        <th>Carbs (g)</th>
-		        <th>Total Fat (g)</th>
-		        <th>Restaurant</th>
-		        <div class="form-check">
+			<thead>
+			  <tr>
+				<th>Entree Name</th>
+				<th>Calories</th>
+				<th>Protein (g)</th>
+				<th>Carbs (g)</th>
+				<th>Total Fat (g)</th>
+				<th>Restaurant</th>
+				<div class="form-check">
 		 
 
-		      </tr>
-		    </thead>
-		    <tbody>
-		      {% for entree in filter.qs %}
+			  </tr>
+			</thead>
+			<tbody>
+			  {% for entree in filter.qs %}
 	
 
-		        <tr id="{{entree.id}}">
+				<tr id="{{entree.id}}">
 
 
 
 
-		          <td>{{ entree.name }}</td>
-		          <td>{{ entree.calories }}</td>
-		          <td>{{ entree.protein }}</td>
-		          <td>{{ entree.carbohydrates }}</td>
-		          <td>{{ entree.total_fat }}</td>
-		          <td>{{ entree.restaurant }}</td>
+				  <td>{{ entree.name }}</td>
+				  <td>{{ entree.calories }}</td>
+				  <td>{{ entree.protein }}</td>
+				  <td>{{ entree.carbohydrates }}</td>
+				  <td>{{ entree.total_fat }}</td>
+				  <td>{{ entree.restaurant }}</td>
 
-		          <td>
-		  			 <div id="option">
-        <input name="updateButton"
-        	   id={{entree.id}}
-               type="button"
-               value="click to see graph"
-               onclick="updateData()"
-            />
-    </div>
+				  <td>
+					
+
+					 <div id="option">
+				<button id="{{ entree.id }}"
+				type="button" name= "button">
+				click here for graph
+				</button>
+
+
+
+
+	</div>
 </div>
 
-		    
-		            {% endfor %}
-		          </td>
-		        </tr>
-		        <tr>
-		        </tr>
+			
+					{% endfor %}
+				  </td>
+				</tr>
+				<tr>
+				</tr>
 
-		    </tbody>
+			</tbody>
 		  </table>
 
 		  <div class="container">
 
-		  	<h3> See nutritional info visually here </h3>
-		  	<div id="chart"></div>
+			<h3> See nutritional info visually here </h3>
+			<div id="chart"></div>
 			<script src="http://d3js.org/d3.v3.min.js"></script>
 			<script src="https://d3js.org/d3-selection.v1.min.js"></script>
 
-			  	<script>
-			d3.select(“#checkbox”)on(“click”,function(){})
+				
 
-			  		// if checkbox is checked
-			  		// var data = d3.selectAll("tr").selectAll("td");
 
-			  		// should return graph? lol 
+			<script>
+
+
+
+			$("button").click(function() {
+			var buttonid = this.id 
+			console.log(buttonid)
+		
+
+			var data = []
+			d3.select('.tr-id' + buttonid)
+				var numbers = d3.selectAll('.td')
+				console.log("hello")
+				console.log(numbers)
+
+
+
+		  });
+
+							
+
+
+	
+
+
+		
+
+				
+
+
+			//if button id === tr id 
+			// selectAll tr data 
+				// d3.select('tr[tr-id]')
+			 // forEach(function(d, i) {
+	//         world.forEach(function(e, j) {
+	//             if (d.id === e.id) {
+	//                 e.name = d.name
+	//             }
+	//         })
+	//     })
+			 
+					// if checkbox is checked
+					// var data = d3.selectAll("tr").selectAll("td");
+
+					// should return graph? lol 
 
 
 					// var holder = d3.select("chart")
@@ -147,8 +192,8 @@
 
 
 
-			  	</script>	
-		  	
+				</script>	
+			
 		  </div>
 </html>
  {% endblock %}
