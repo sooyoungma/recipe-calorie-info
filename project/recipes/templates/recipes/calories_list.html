@@ -123,7 +123,11 @@
 		  <div class="container">
 
 			<h3> See nutritional info visually here </h3>
+			<svg></svg>
 			<div id="chart"></div>
+
+
+
 			<script src="http://d3js.org/d3.v3.min.js"></script>
 			<script src="https://d3js.org/d3-selection.v1.min.js"></script>
 
@@ -137,20 +141,18 @@
 			$("button").click(function() {
 			var buttonid = this.id 
 			console.log(buttonid)
+			// above uses jQuery to display the id of button clicked
 		
+			//select data 
 
-			var data = []
-			d3.select('.tr-id' + buttonid)
-				var numbers = d3.selectAll('.td')
-				console.log("hello")
-				console.log(numbers)
+			var chartdata = d3.select("[id='" + buttonid + "']")
 
+			
 
 
-		  });
 
-							
 
+});
 
 	
 
