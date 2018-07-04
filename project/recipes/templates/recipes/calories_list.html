@@ -83,7 +83,7 @@
 			  {% for entree in filter.qs %}
 	
 
-				<tr id="{{entree.id}}">
+				<tr id=a-"{{entree.id}}" class="filter">
 
 
 
@@ -99,7 +99,7 @@
 					
 
 					 <div id="option">
-				<button id="{{ entree.id }}"
+				<button id="a-{{ entree.id }}"
 				type="button" name= "button">
 				click here for graph
 				</button>
@@ -138,17 +138,19 @@
 
 
 
-			$("button").click(function() {
-			var buttonid = this.id 
-			console.log(buttonid)
-			// above uses jQuery to display the id of button clicked
+			// $("button").click(function() {
+			// var buttonid = this.id 
+			// console.log(buttonid)
+			// // above uses jQuery to display the id of button clicked
 		
-			//select data 
-
-			var chartdata = d3.select("[id='" + buttonid + "']")
-
-			
-
+			// //select data 
+			$('button').click(function() {
+			// get td grandparent of clicked button
+			var tdElem = this.parentNode.parentNode;
+			console.log(tdElem)
+			// d3 select the td element
+			var chartdata = d3.select(tdElem);
+			console.log(chartdata)
 
 
 
