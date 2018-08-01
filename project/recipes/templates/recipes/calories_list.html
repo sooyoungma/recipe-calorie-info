@@ -15,12 +15,9 @@
 
 		<style media="screen" type="text/css">
 
-				#chart div {
-					  display: inline-block;
-					  background: #4285F4;
-					  width: 20px;
-					  margin-right: 3px;
-					}
+				.bar-chart {
+					background-color: #C7D9D9;
+				}
 
 		</style>
 	</head>
@@ -83,9 +80,7 @@
 			  {% for entree in filter.qs %}
 	
 
-				<tr id=a-"{{entree.id}}" class="filter">
-
-
+				<tr id="{{entree.id}}">
 
 
 				  <td>{{ entree.name }}</td>
@@ -96,14 +91,14 @@
 				  <td>{{ entree.restaurant }}</td>
 
 				  <td>
-					
+					<td><button class="btnSelect">Select</button></td>
 
-					 <div id="option">
-				<button id="a-{{ entree.id }}"
+				<!-- 	 <div id="option">
+				<button id="{{ entree.id }}"
 				type="button" name= "button">
 				click here for graph
 				</button>
-
+ -->
 
 
 
@@ -136,21 +131,58 @@
 
 			<script>
 
+			$(".table").on('click','.btnSelect',function(){
+		 // get the current row
+			 var currentRow=$(this).closest("tr");
+			 var col1=currentRow.find("td:eq(1)").html();
+			 var col2=currentRow.find("td:eq(2)").html();
+			 var col3=currentRow.find("td:eq(3)").html();
+			 var col4=currentRow.find("td:eq(4)").html();
+			 var data=col1+','+col2+','+col3+','+col4;
+			 console.log(data);
 
+			var chartdata = []
 
+			chartdata.push(col1,col2,col3,col4);
+
+				console.log(chartdata)
+				console.log(chartdata.length)
+
+		
 			// $("button").click(function() {
 			// var buttonid = this.id 
 			// console.log(buttonid)
-			// // above uses jQuery to display the id of button clicked
+
+			
 		
-			// //select data 
-			$('button').click(function() {
-			// get td grandparent of clicked button
-			var tdElem = this.parentNode.parentNode;
-			console.log(tdElem)
-			// d3 select the td element
-			var chartdata = d3.select(tdElem);
-			console.log(chartdata)
+			//use jquery to append <tr> data to array and use it as a dataset for code blow :) 
+
+
+
+			var svgWidth = 800;
+			var svgHeight = 500;
+			var svg = d3.select('svg')
+				.attr("width", svgWidth)
+				.attr("height", svgHeight)
+				.attr("class", "bar-chart");
+
+			var barPadding = 5;
+			var barWidth = (svgWidth / chartdata.length);
+			var barChart = svg.selectAll("rect")
+				.data(chartdata)
+				.enter()
+				.append("rect")
+				.attr("y", function(d) {
+					return svgHeight - d
+				})
+				.attr("height", function(d) {
+					return d;
+				})
+				.attr("width", barWidth - barPadding)
+				.attr("transform", function (d, i) {
+					 var translate = [barWidth * i, 0];
+					 return "translate("+ translate +")";
+				});
 
 
 
