@@ -63,5 +63,5 @@ unicodecsv==0.14.1
 urllib3==1.22
 virtkey==0.63.0
 virtualenv==15.0.1
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 xkit==0.0.0
