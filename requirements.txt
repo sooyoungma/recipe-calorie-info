@@ -15,7 +15,7 @@ djangorestframework==3.7.7
 djangorestframework-csv==2.0.0
 Faker==0.7.18
 Flask==0.12.2
-httplib2==0.9.1
+httplib2==0.19.0
 IbPy2==0.8.0
 idna==2.5
 itsdangerous==0.24
