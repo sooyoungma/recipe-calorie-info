@@ -19,7 +19,7 @@ httplib2==0.9.1
 IbPy2==0.8.0
 idna==2.5
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.3
 louis==2.6.4
 lxml==3.5.0
 Mako==1.0.3
