@@ -11,7 +11,7 @@ cryptography==1.2.3
 defer==1.0.6
 dirspec==13.10
 Django==1.11.4
-djangorestframework==3.7.7
+djangorestframework==3.11.2
 djangorestframework-csv==2.0.0
 Faker==0.7.18
 Flask==0.12.2
